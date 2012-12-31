@@ -1,0 +1,7 @@
+name = MetaHub
+description = Relational object framework
+core = 6.x
+package = Silent Orb
+php = 5.3
+
+files[] = inc/Meta_Object.inc
