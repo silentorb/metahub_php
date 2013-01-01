@@ -25,6 +25,15 @@ class MetaHub {
     return null;
   }
 
+  static function extend($target, $source) {
+    $properties = get_object_vars($source);
+    foreach ($properties as $property) {
+      if (property_exists($target, $source)) {
+        $target->{$property} = $source->{$property};
+      }
+    }
+  }
+
 }
 
 class Meta_Array {
