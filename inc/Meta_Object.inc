@@ -26,10 +26,12 @@ class MetaHub {
   }
 
   static function extend($target, $source) {
-    $properties = get_object_vars($source);
-    foreach ($properties as $property) {
-      if (property_exists($target, $source)) {
-        $target->{$property} = $source->{$property};
+    if (is_object($source))
+    $source = get_object_vars($source);
+    
+    foreach ($source as $name => $value) {
+      if (property_exists($target, $name)) {
+        $target->{$name} = $value;
       }
     }
   }
