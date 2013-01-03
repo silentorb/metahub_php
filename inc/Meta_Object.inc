@@ -25,12 +25,12 @@ class MetaHub {
     return null;
   }
 
-  static function extend($target, $source) {
+  static function extend($target, $source, $conservative = false) {
     if (is_object($source))
     $source = get_object_vars($source);
     
     foreach ($source as $name => $value) {
-      if (property_exists($target, $name)) {
+      if (!$conservative || property_exists($target, $name)) {
         $target->{$name} = $value;
       }
     }
