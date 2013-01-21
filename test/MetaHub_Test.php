@@ -16,7 +16,7 @@ class MetaHub_Test extends PHPUnit_Framework_TestCase {
     $b->defined_and_set = 'set again';
     $b->not_defined = true;
 
-    MetaHub::extend($a, $b);
+    MetaHub::extend($a, $b, true);
     $this->assertEquals(100, $a->defined_but_not_set);
     $this->assertEquals('set again', $a->defined_and_set);
     $this->assertSame(null, $a->not_defined);
@@ -29,7 +29,7 @@ class MetaHub_Test extends PHPUnit_Framework_TestCase {
         'defined_and_set' => 'set again',
         'not_defined' => true
     );
-    MetaHub::extend($a, $b);
+    MetaHub::extend($a, $b, true);
     $this->assertEquals(100, $a->defined_but_not_set);
     $this->assertEquals('set again', $a->defined_and_set);
     $this->assertSame(null, $a->not_defined);
